@@ -1,4 +1,4 @@
-# Image_Caption_Generator
+# Image_Caption_Generator 🖼️
 This project demonstrates an end-to-end system for generating captions for images. The pipeline involves:
 - Using the **VGG16** model for feature extraction.
 - Building and training a **combination of LSTM and a neural network** for generating captions.
