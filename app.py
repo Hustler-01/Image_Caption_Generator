@@ -8,17 +8,6 @@ from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from gtts import gTTS
 import time  # For animation effect
-import os
-
-# Limit CPU usage
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"  # Suppress unnecessary logs
-tf.config.threading.set_inter_op_parallelism_threads(1)
-tf.config.threading.set_intra_op_parallelism_threads(1)
-
-# Limit GPU memory growth (even if no GPU)
-physical_devices = tf.config.list_physical_devices('GPU')
-for device in physical_devices:
-    tf.config.experimental.set_memory_growth(device, True)
 
 # Load VGG16 model
 vgg_model = VGG16()
