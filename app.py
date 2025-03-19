@@ -11,8 +11,8 @@ from gtts import gTTS
 import time
 
 # Load VGG16 model for feature extraction
-vgg_model = VGG16(weights="imagenet", include_top=False)
-vgg_model = Model(inputs=vgg_model.input, outputs=vgg_model.layers[-1].output)  # Extract last CNN layer
+vgg_model = VGG16(weights="imagenet")
+vgg_model = Model(inputs=vgg_model.input, outputs=vgg_model.get_layer("fc2").output)  # Extract last CNN layer
 
 # Load trained captioning model
 model = load_model("model.h5")
@@ -70,7 +70,7 @@ if uploaded_image is not None:
     col1, col2 = st.columns([2, 3])  # Two-column layout for better UI
     
     with col1:
-        st.image(uploaded_image, use_column_width=True, caption="📷 Uploaded Image")
+        st.image(uploaded_image, use_container_width=True, caption="📷 Uploaded Image")
     
     with col2:
         with st.spinner("⏳ Generating caption..."):
@@ -94,7 +94,7 @@ if uploaded_image is not None:
 
             # Display generated caption
             st.markdown(f"<h3 style='color: #ffcc00;'>📝 Generated Caption:</h3>", unsafe_allow_html=True)
-            st.markdown(f"<p style='font-size: 20px; color: #fff;'><b>{generated_caption}</b></p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='font-size: 20px; color: #000000;'><b>{generated_caption}</b></p>", unsafe_allow_html=True)
 
             # Convert caption to speech
             tts = gTTS(generated_caption, lang="en")
