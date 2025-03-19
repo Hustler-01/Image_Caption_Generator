@@ -4,6 +4,7 @@ This project demonstrates an end-to-end system for generating captions for image
 - Building and training a **combination of LSTM and a neural network** for generating captions.
 - Evaluating the model's performance using the **BLEU score**.
 - Converting the generated captions to speech using the **gTTS** library.
+- Developing a user-friendly frontend with Streamlit for interacting with the model.
 
 ---
 ## Deployment
